@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>new app</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/custom.css" />
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+
+
+<!--SOME APPLE SEETINGS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<!--You need this although you do not need a physical reference as build will inject it in-->
+
+</head>
+
+<!--notice i have added the class online which will change based on our online listeners-->
+<body class="online">
+	
+
+<!-- Start of first page -->
+<div data-role="page" id="foo">
+
+	<div data-role="header">
+		<h1>Sellfish</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+	<form id="userform">
+		<p>Insert First Name:</p>
+		<input type="text" name="firstname">
+
+		<p>Insert Last Name:</p>
+		<input type="text" name="lastname">
+		
+		<p>Insert Budget:</p>
+		<input type="number" min="0.0" max="9999" name="budget" placeholder="£">
+	</form>	
+	</div><!-- /content -->
+
+	<div data-role="footer"  class="mainbuttons">
+		<a href="#bar">
+			Start Buying!
+		</a>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+
+
+<!-- Start of second page -->
+<div data-role="page" id="bar">
+
+	<div data-role="header" id="headerBar">
+		<a href="#foo"> < </a>
+		<h1>Sellfish</h1>
+		<a href="#sell"> Sell </a>
+
+	</div><!-- /header -->
+
+	<div id="mainpagebox" >
+		<div class="grid-container" id="itemList">
+						
+			<!-- /Item -->
+			<div class="grid-item" id="itembox1" >
+				<img class="itemimage" src="https://cdn-images-1.medium.com/max/1600/1*_kOjjFFIGq-G8x1YhdzKWg.jpeg"></img>
+				
+				<h1 class="ItemText" id="itemname"> ITEM NAME </h1>
+				<p class="ItemText" id="itemcost">ITEM TEXT</p>
+				<p class="ItemText" id="itemseller">ITEM TEXT</p>
+				<p class="ItemText" id="itemlocation">ITEM TEXT</p>
+				<br>
+			</div>
+			<div class="grid-item" id="itembox1" >
+				<img class="itemimage" src="https://cdn-images-1.medium.com/max/1600/1*_kOjjFFIGq-G8x1YhdzKWg.jpeg"></img>
+				
+				<h1 class="ItemText" id="itemname"> ITEM NAME </h1>
+				<p class="ItemText" id="itemcost">ITEM TEXT</p>
+				<p class="ItemText" id="itemseller">ITEM TEXT</p>
+				<p class="ItemText" id="itemlocation">ITEM TEXT</p>
+				<br>
+			</div>
+			
+		</div>
+		
+		<div data-role="footer" class="mainbuttons">
+			<a class="mainbutton" id="wantbutton"> YES </a>
+
+			<a class="mainbutton" id="throwbutton"> NO </a>
+		</div><!-- /footer -->
+	</div><!-- /content -->
+
+	
+</div><!-- /page -->
+
+<div data-role="page" id="sell">
+
+	<div data-role="header">
+		<a href="#bar"> < </a>
+		<h1>Sellfish</h1>
+	</div>
+		<div role="main" class="ui-content">
+
+			<p>Insert Item Name:</p>
+			<input type="text" name="item name">
+			
+			<p>Insert Cost:</p>
+			<input type="number" min="0.0" max="9999" name="budget" placeholder="£">
+			
+			<p>Take Picture:</p>
+			<input type="file" accept="image/*" capture="camera" name="item image">
+			
+			<p>Take Location:</p>
+			<button type="button" class="button" id="nudge" >Allow Location</button>
+
+			<button type="button" class="button" id="button" >Locate Me!</button>
+			
+
+		
+		
+		
+
+		</div>
+		
+		<div id="map">
+		</div>
+
+			
+			
+</div>
+
+<!--scripts at the bottom of the page-->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/highcharts.js"></script> 
+<script src="js/jquery-ui.js"></script>
+<script src="js/modules/no-data-to-display.js"></script> 
+<script src="js/themes/mypbtheme.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+
+<script src="js/customjava.js"></script>
+<!--note jqm defaults defines preferences for JQM so needs to be declared before the library--> 
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4pC5n8wmuQGZ0Y4khjkCIveb1DAhOlRo&callback=initMap">
+</script>
+
+<!--high charts stuff with custom theme-->
+
+<!--high charts stuff-->
+ 
+<!--our js file goes last so we know all dependencies are loaded first--> 
+
+</body>
+</html>
