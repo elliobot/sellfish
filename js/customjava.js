@@ -38,7 +38,6 @@ var marker = new google.maps.Marker({
   
 function createDiv()	{
 	var div = document.createElement("div");
-	div.style.border-width = "2";
 	div.style.border = "2px solid black";
 	div.style.background = "red";
 	div.style.color = "white";
@@ -47,17 +46,7 @@ function createDiv()	{
 	div.innerHTML = "Hello";
 
 	document.getElementById("itemList").appendChild(div);
-	
-    border-width: 2;
-	border: 2px solid black;
-	box-shadow: 5px 5px 5px grey;
-	margin-left: 20%;
-	margin-top: 30px;
-	margin-right: 20%;
-	margin-bottom: 50px;
-	position: relative;
-	text-align: center;
-	background-color:white;
+
 }
 	
   
