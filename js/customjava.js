@@ -1,5 +1,5 @@
 
-var map, infoWindow;
+var map, infoWindow, currentItem;
 var pos = {
         lat: 0,
         lng: 0
@@ -36,6 +36,26 @@ if (navigator.geolocation) {
   // Browser doesn't support Geolocation
   handleLocationError(false, infoWindow, map.getCenter());
 }
+function deleteItem()	{
+	currentItem.style.display = "none";
+
+}
+function selectedItem()	{
+	if (currentItem != null){	
+		var x = document.getElementsByClassName("grid-item");
+		var i;
+		for (i = 0; i < x.length; i++) {
+		  x[i].style.border = "2px solid black";
+		  x[i].style.outlineStyle = "";
+		  x[i].style.outlineColor = "";
+		}
+	}
+	currentItem = this;
+	this.style.border = "2px solid red";
+	this.style.outlineStyle = "outset";
+	this.style.outlineColor = "red";
+	
+}
 function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -60,8 +80,7 @@ function createDiv()	{
 
 	div.style.border = "2px solid black";
 	div.className = "grid-item";
-	
-	
+		
 	itemImage.className = "itemimage";
 	itemImage.src = document.getElementById("selectedImage").src;
 
@@ -86,9 +105,12 @@ function createDiv()	{
 	div.appendChild(itemSeller);
 	div.appendChild(itemLocation);
 
+	div.onclick = selectedItem;
+
 	document.getElementById("itemList").appendChild(div);
 	
 }
+	
 	
 document.getElementById("button").addEventListener("click", createDiv);
 
