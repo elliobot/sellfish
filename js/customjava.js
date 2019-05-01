@@ -36,10 +36,7 @@ if (navigator.geolocation) {
   // Browser doesn't support Geolocation
   handleLocationError(false, infoWindow, map.getCenter());
 }
-function deleteItem()	{
-	currentItem.style.display = "none";
 
-}
 function selectedItem()	{
 	if (currentItem != null){	
 		var x = document.getElementsByClassName("grid-item");
