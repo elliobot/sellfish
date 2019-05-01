@@ -10,6 +10,11 @@ function initMap() {
     zoom: 16
   });
   infoWindow = new google.maps.InfoWindow;
+  var marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: 'Your location'
+  });
 }
   // Try HTML5 geolocation.
 if (navigator.geolocation) {
@@ -26,30 +31,67 @@ if (navigator.geolocation) {
   }, function() {
     handleLocationError(true, infoWindow, map.getCenter());
   });
-var marker = new google.maps.Marker({
-        position: pos,
-        map: map,
-        title: 'Your location'
-  });
+
 } else {
   // Browser doesn't support Geolocation
   handleLocationError(false, infoWindow, map.getCenter());
 }
-  
+function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#selectedImage')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+}  
 function createDiv()	{
-	var div = document.createElement("div");
+	var div = document.createElement('div');
+	var itemImage = document.createElement('img');
+	var itemName = document.createElement('h1');
+	var itemCost = document.createElement('p');
+	var itemSeller = document.createElement('p');
+	var itemLocation = document.createElement('p');
+
 	div.style.border = "2px solid black";
-	div.style.background = "red";
-	div.style.color = "white";
+	div.className = "grid-item";
 	
 	
-	div.innerHTML = "Hello";
+	itemImage.className = "itemimage";
+	itemImage.src = document.getElementById("selectedImage").src;
+
+	itemName.className = "itemname";
+	itemName.innerHTML = document.getElementById("nameField").value;
+	
+	itemCost.className = "itemcost";
+	itemCost.innerHTML = "£" + document.getElementById("costField").value;
+
+	itemSeller.className = "itemseller";
+	itemSeller.innerHTML = document.getElementById("firstnameField").value;
+
+	
+	itemLocation.className = "itemlocation";
+	
+
+	
+
+	div.appendChild(itemImage);
+	div.appendChild(itemName);
+	div.appendChild(itemCost);
+	div.appendChild(itemSeller);
+	div.appendChild(itemLocation);
 
 	document.getElementById("itemList").appendChild(div);
-
+	
 }
 	
-  
+document.getElementById("button").addEventListener("click", createDiv);
+
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
