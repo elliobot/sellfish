@@ -1,20 +1,18 @@
 
-var map, infoWindow, currentItem;
+var map, infoWindow, currentItem, marker;
 var pos = {
         lat: 0,
         lng: 0
       };
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 16
-  });
-  infoWindow = new google.maps.InfoWindow;
-  var marker = new google.maps.Marker({
-        position: pos,
-        map: map,
-        title: 'Your location'
-  });
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: -34.397, lng: 150.644},
+		zoom: 16
+	});
+	infoWindow = new google.maps.InfoWindow;
+	title: 'Your location'
+	
+	
 }
   // Try HTML5 geolocation.
 if (navigator.geolocation) {
@@ -24,19 +22,31 @@ if (navigator.geolocation) {
       lng: position.coords.longitude
     };
 
-    infoWindow.setPosition(pos);
-    infoWindow.setContent('You are here!');
-    infoWindow.open(map);
     map.setCenter(pos);
+	
+	marker = new google.maps.Marker({
+		position: {lat: pos.lat, lng: pos.lng},
+		map: map,
+	
+		draggable: true,
+		animation: google.maps.Animation.DROP
+	});
+	
   }, function() {
     handleLocationError(true, infoWindow, map.getCenter());
-  });
-
+	});
+	
 } else {
   // Browser doesn't support Geolocation
   handleLocationError(false, infoWindow, map.getCenter());
 }
-
+function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
 function selectedItem()	{
 	if (currentItem != null){	
 		var x = document.getElementsByClassName("grid-item");
