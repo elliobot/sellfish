@@ -157,8 +157,11 @@ function createDiv()	{
 
 	
 window.addEventListener('devicemotion', function(event) {
-	currentItem.style.visibility = "hidden";
 	console.log(event.acceleration.x + ' m/s2');
+	if(event.acceleration.x > 0.5)
+	{
+	currentItem.visibility = "hidden";
+	}
 });
 
 
