@@ -1,6 +1,6 @@
 
 var map, infoWindow, currentItem, marker ;
-var i = 0;
+var j = 0;
 var pos = {
         lat: 0,
         lng: 0
@@ -47,29 +47,32 @@ function addToCart() {
 	
 
     var original = currentItem;
-	original.id = "cartitem" + ++i; // there can only be one element with an ID
+	original.id = "cartitem" + ++j; // there can only be one element with an ID
 	original.className = "grid-item";
 	original.style.display = 'block';
+	
 	document.getElementById("cartList").appendChild(original);
 
 }
 function selectedItem()	{
-	if (currentItem != null){	
-		var x = document.getElementById("itemList");
-		var i;
-		for (i = 0; i < x.length; i++) {
-		  x[i].style.border = "2px solid black";
-		  x[i].style.outlineStyle = "";
-		  x[i].style.outlineColor = "";
-		}
+	var x = document.getElementsByClassName("grid-item");
+	console.log(x);
+
+	for (var i = 0; i < x.length; i++) {
+
+	  x[i].style.border = "2px solid black";
+	  x[i].style.outlineStyle = "";
+	  x[i].style.outlineColor = "";
+	
 	}
+	console.log("llllarge");
 	currentItem = this;
 	this.style.border = "2px solid black";
 	this.style.borderColor = "rgb(153, 192, 255)";
 
 	this.style.outlineStyle = "outset";
 	this.style.outlineColor = "rgb(153, 192, 255)";
-	
+
 }
 function readURL(input) {
             if (input.files && input.files[0]) {
