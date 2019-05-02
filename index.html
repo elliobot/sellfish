@@ -35,7 +35,8 @@
 
 <body class="online" style="background-color:rgb(222, 232, 255);">
 	
-
+<a style="visibility:hidden" id="selectedLat">0</a>
+<a style="visibility:hidden" id="selectedLon">0</a>
 <!-- Start of first page -->
 <div data-role="page" id="foo" class="page">
 
@@ -95,7 +96,6 @@
 
 	<div class="mainpagebox" >
 		<div class="grid-container" id="itemList" class="itemList">
-			
 			
 
 		</div>
@@ -173,9 +173,11 @@
 		<div class="grid-container" id="cartList">
 			<p>Interested Items</p>
 
-
+		
 		</div>
-
+		<div class="mainbuttons">
+			<a class="mainbutton" id="messageButton"> Message Seller </a>
+		</div><!-- /footer -->
 	</div><!-- /content -->
 </div>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4pC5n8wmuQGZ0Y4khjkCIveb1DAhOlRo&callback=initMap"></script>

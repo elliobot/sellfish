@@ -1,5 +1,6 @@
 
 var map, infoWindow, currentItem, marker ;
+var userLng, userLat;
 var j = 0;
 var pos = {
         lat: 0,
@@ -21,7 +22,9 @@ if (navigator.geolocation) {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
-
+	
+	userLng = position.coords.latitude;
+	userLat = position.coords.longitude;
     map.setCenter(pos);
 	
 	marker = new google.maps.Marker({
@@ -54,12 +57,30 @@ function addToCart() {
 	document.getElementById("cartList").appendChild(original);
 
 }
+//function distanceAway() {
+//	var R = 6371e3; // metres
+//	var φ1 = userLat.toRadians();
+//	var φ2 = lat2.toRadians();
+//	var Δφ = (lat2-userLat).toRadians();
+//	var Δλ = (lon2-userLng).toRadians();
+//	//var radLat1 = lat1.toRadians();
+//	//var radLat2 = lat2.toRadians();
+//	//var radDiff1 = (lat2-lat1).toRadians();
+//	//var radDiff2 = (lon2-lon1).toRadians();
+//	
+//	var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+//			Math.cos(φ1) * Math.cos(φ2) *
+//			Math.sin(Δλ/2) * Math.sin(Δλ/2);
+//	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+//
+//	var d = R * c;
+//}
 function selectedItem()	{
 	var x = document.getElementsByClassName("grid-item");
 	console.log(x);
 
 	for (var i = 0; i < x.length; i++) {
-
+	
 	  x[i].style.border = "2px solid black";
 	  x[i].style.outlineStyle = "";
 	  x[i].style.outlineColor = "";
@@ -135,7 +156,10 @@ function createDiv()	{
 }
 
 	
-
+window.addEventListener('devicemotion', function(event) {
+	currentItem.style.visibility = "hidden";
+	console.log(event.acceleration.x + ' m/s2');
+});
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
