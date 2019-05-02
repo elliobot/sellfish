@@ -141,18 +141,20 @@ function createDiv()	{
 	itemLocation.innerHTML = document.getElementById("locationField").value;
 
 
-	
+	if(document.getElementById("nameField").value == "" || document.getElementById("selectedImage").src == "" || document.getElementById("costField").value == "" || document.getElementById("firstnameField").value == ""){
+		alert("Please input missing data.");
 
+	}
+	else{
 	div.appendChild(itemImage);
 	div.appendChild(itemName);
 	div.appendChild(itemCost);
 	div.appendChild(itemSeller);
 	div.appendChild(itemLocation);
-
 	div.onclick = selectedItem;
 
 	document.getElementById("itemList").appendChild(div);
-	
+	}
 }
 
 	
