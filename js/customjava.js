@@ -1,5 +1,5 @@
 
-var map, infoWindow, currentItem, marker;
+var map, infoWindow, currentItem, marker ;
 var pos = {
         lat: 0,
         lng: 0
@@ -9,8 +9,7 @@ function initMap() {
 		center: {lat: -34.397, lng: 150.644},
 		zoom: 16
 	});
-	infoWindow = new google.maps.InfoWindow;
-	title: 'Your location'
+
 	
 	
 }
@@ -30,23 +29,20 @@ if (navigator.geolocation) {
 	
 		draggable: true,
 		animation: google.maps.Animation.DROP
+		
 	});
-	
-  }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
+	marker.addListener('mouseup', function() {
+		map.setCenter(marker.getPosition());
+		document.getElementById("locationField").value = marker.position;
 	});
-	
+	document.getElementById("button").addEventListener("click", createDiv);
+
+  });
 } else {
   // Browser doesn't support Geolocation
   handleLocationError(false, infoWindow, map.getCenter());
 }
-function toggleBounce() {
-        if (marker.getAnimation() !== null) {
-          marker.setAnimation(null);
-        } else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-      }
+
 function selectedItem()	{
 	if (currentItem != null){	
 		var x = document.getElementsByClassName("grid-item");
@@ -58,9 +54,11 @@ function selectedItem()	{
 		}
 	}
 	currentItem = this;
-	this.style.border = "2px solid red";
+	this.style.border = "2px solid black";
+	this.style.borderColor = "rgb(153, 192, 255)";
+
 	this.style.outlineStyle = "outset";
-	this.style.outlineColor = "red";
+	this.style.outlineColor = "rgb(153, 192, 255)";
 	
 }
 function readURL(input) {
@@ -78,6 +76,8 @@ function readURL(input) {
             }
 }  
 function createDiv()	{
+	
+
 	var div = document.createElement('div');
 	var itemImage = document.createElement('img');
 	var itemName = document.createElement('h1');
@@ -95,14 +95,17 @@ function createDiv()	{
 	itemName.innerHTML = document.getElementById("nameField").value;
 	
 	itemCost.className = "itemcost";
-	itemCost.innerHTML = "£" + document.getElementById("costField").value;
-
+	if (document.getElementById("costField").value != null)
+	{
+		itemCost.innerHTML = "£" + document.getElementById("costField").value;
+	}
 	itemSeller.className = "itemseller";
 	itemSeller.innerHTML = document.getElementById("firstnameField").value;
 
 	
 	itemLocation.className = "itemlocation";
-	
+	itemLocation.innerHTML = document.getElementById("locationField").value;
+
 
 	
 
@@ -117,16 +120,18 @@ function createDiv()	{
 	document.getElementById("itemList").appendChild(div);
 	
 }
+
 	
-	
-document.getElementById("button").addEventListener("click", createDiv);
 
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
+	if (setPosition)
+	{
+	  infoWindow.setPosition(pos);
+	  infoWindow.setContent(browserHasGeolocation ?
+							'Error: The Geolocation service failed.' :
+							'Error: Your browser doesn\'t support geolocation.');
+	  infoWindow.open(map);
+	}
 }

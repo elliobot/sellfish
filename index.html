@@ -4,9 +4,10 @@
 <title>new app</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+
 <link rel="stylesheet" href="css/custom.css" />
 
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 
 
 
@@ -20,18 +21,31 @@
 </head>
 
 <!--notice i have added the class online which will change based on our online listeners-->
+<script src="js/jquery.min.js"></script>
+<script src="js/customJQ.js"></script>
+<script src="js/highcharts.js"></script> 
+<script src="js/jquery-ui.js"></script>
+<script src="js/modules/no-data-to-display.js"></script> 
+<script src="js/themes/mypbtheme.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+<script src="js/jquery-ui.js"></script>
+
+<script src="js/customjava.js"></script>
+<!--note jqm defaults defines preferences for JQM so needs to be declared before the library--> 
+
 <body class="online">
 	
 
 <!-- Start of first page -->
-<div data-role="page" id="foo">
+<div data-role="page" id="foo" class="page">
 
-	<div data-role="header">
-		<h1>Sellfish</h1>
+	<div  class="headerBar">
+		<img src="icon.png" id="logoimage" >
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
 	<form id="userform">
+	
 		<p>Insert First Name:</p>
 		<input id = "firstnameField" type="text" name="firstname">
 
@@ -55,13 +69,22 @@
 
 
 <!-- Start of second page -->
-<div data-role="page" id="bar">
+<div data-role="page" id="bar" class="page">
 
-	<div data-role="header" id="headerBar">
-		<a href="#foo"> < </a>
-		<h1>Sellfish</h1>
-		<a href="#sell"> Sell </a>
-
+	<div class="headerBar">
+		<div id="backbutton1">
+			<img src="back.png" id="backimage" >
+		</div>
+		
+		<div id="sellbutton">
+			<img src="sell.png" id="sellimage" >
+		</div>
+		
+		<div id="sellfishtext">
+		<img src="icon.png" id="logoimage" >
+		</div>
+		
+		
 	</div><!-- /header -->
 
 	<div id="mainpagebox" >
@@ -69,8 +92,8 @@
 			
 		</div>
 		
-		<div data-role="footer" class="mainbuttons">
-			<a class="mainbutton" id="wantbutton"> YES </a>
+		<div class="mainbuttons">
+			<a readonly class="mainbutton" id="wantbutton"> YES </a>
 
 			<a class="mainbutton" id="throwbutton"> NO </a>
 		</div><!-- /footer -->
@@ -79,11 +102,19 @@
 	
 </div><!-- /page -->
 
-<div data-role="page" id="sell">
+<div data-role="page" id="sell" class="page">
 
-	<div data-role="header">
-		<a href="#bar"> < </a>
-		<h1>Sellfish</h1>
+	<div class="headerBar">
+		<div id="backbutton2">
+			<img src="back.png" id="backimage" >
+		</div>
+		
+		<div id="sellbutton">
+		</div>
+		
+		<div id="sellfishtext">
+			<img src="icon.png" id="logoimage" >
+		</div>
 	</div>
 		<div role="main" class="ui-content">
 
@@ -97,41 +128,30 @@
 			<input id = "imageField" type="file" accept="image/*" capture="camera" name="item image" onchange="readURL(this);">
 			<img id="selectedImage"></img>
 			
-			<p>Take Location:</p>
-			<button type="button" class="button" id="nudge" >Add Location</button>
+			<p>Pin Location:</p>
+			<input readonly id = "locationField" type="text" name="item location">
 
-			<button type="button" class="button" id="button" >Submit Item</button>
 			
 
 		
 		
 		
+		<div id="map"></div>
+		
+		<button type="button" class="button" id="button" >Submit Item</button>
 
 		</div>
 		
-		<div id="map">
-		</div>
+		
 
 			
 			
 </div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4pC5n8wmuQGZ0Y4khjkCIveb1DAhOlRo&callback=initMap"></script>
 
 <!--scripts at the bottom of the page-->
 
-<script src="js/jquery.min.js"></script>
-<script src="js/customJQ.js"></script>
-<script src="js/highcharts.js"></script> 
-<script src="js/jquery-ui.js"></script>
-<script src="js/modules/no-data-to-display.js"></script> 
-<script src="js/themes/mypbtheme.js"></script>
-<script src="js/jquery.mobile-1.4.5.min.js"></script>
-<script src="js/jquery-ui.js"></script>
 
-<script src="js/customjava.js"></script>
-<!--note jqm defaults defines preferences for JQM so needs to be declared before the library--> 
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4pC5n8wmuQGZ0Y4khjkCIveb1DAhOlRo&callback=initMap">
-</script>
 
 <!--high charts stuff with custom theme-->
 

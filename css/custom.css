@@ -1,15 +1,19 @@
 @charset "UTF-8";
 body{
+	visibility:show;
+	background-color: rgb(142, 152, 253);
+
 }
 body.online #offline{
 	display:none;
+	visibility:hidden;
+	background-color: rgb(142, 152, 253);
 
 }
 body.offline #offline{
-display: block;
+	display: block;
 	width: 100vw;
 	height: 100vh;
-	background-color: red;
 	color: white;
 	position: fixed;
 	z-index: 9999;
@@ -17,33 +21,82 @@ display: block;
 	box-sizing: border-box;
 }
 .ui-content {
-	border: 2px solid black;
     overflow: visible;
     overflow-x: hidden;
+	margin-top: 50px;
+	background-color: rgb(222, 232, 255);
+
+}
+.page{
+	background-color: rgb(222, 232, 255);
+
 }
 .mainbuttons {
-	border: 2px solid black;
 	
 	bottom: 0px;
-	
+	user-select: none;
 	text-align: center;
 	position: fixed !important;
 	width: 100%;
+	z-index: 1;
+	
+	background-color: rgb(142, 152, 253);
+	box-shadow: 0px 5px 0 rgb(104, 111, 186);
+    color: #fff /*{a-bar-color}*/;
+    text-shadow: 0 2px 0 rgb(100, 100, 100);
+	font-weight: bold;
 }
 
 .grid-container	{
 	display: grid;
+	margin-bottom: 100px;
+
 	grid-gap: 30px;
 
 	grid-template-columns: auto;
 
 }
-#headerBar	{
+p {
+	padding-left: 1%;
+	margin-right: 20%;
+    color: #fff /*{a-bar-color}*/;
+    text-shadow: 0 2px 0 rgb(100, 100, 100);
+	font-weight: bold;
+	font-size: 20px;
+	background-color: rgb(142, 152, 253);
+	box-shadow: 0px 5px 0 rgb(104, 111, 186);
+}
+
+.headerBar	{
+	height: 60px;
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+	background-color: rgb(142, 152, 253);
+	box-shadow: 0px 5px 0 rgb(104, 111, 186);
+    color: #fff /*{a-bar-color}*/;
+    text-shadow: 0 2px 0 rgb(100, 100, 100);
+	font-weight: bold;
+}
+h1	{
+	text-align: center;
 
 }
+.headerbutton
+{
+    color: #fff /*{a-bar-color}*/;
+    text-shadow: 0 2px 0 rgb(100, 100, 100);
+	font-weight: bold;
+	font-size: 20px;
+	background-color: rgb(222, 232, 255);
+	box-shadow: 0px 5px 0 rgb(172, 188, 224);
+	margin: 3px;
+}
+#backbutton1{float:left; width:45px;height:50px;}
+#backbutton2{float:left; width:45px;height:50px;}
+
+#sellfishtext{margin:0 auto;}
+#sellbutton{float:right;width:45px;height:50px;}
 .grid-item	{
 	border: 2px solid black;
 	box-shadow: 5px 5px 5px grey;
@@ -72,6 +125,31 @@ display: block;
 	margin-right: auto;
 	
 }
+
+#logoimage
+{
+	display:block;
+	height: 80px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#backimage
+{
+	margin: 5px;
+	margin-left: 10px;
+	height: 100%;
+}
+#sellbutton
+{
+
+	margin-right: 15px;
+
+}
+#sellimage
+{
+	margin: 5px;
+	height: 100%;
+}
 #pageData
 {
 	size: 50px;
@@ -89,36 +167,45 @@ display: block;
 
 
 #map {
-        height: 50%;
+        display:block;
+		height: 400px;
 		width: 100%;
-		position:fixed !important;
+		margin-left: auto;
+		margin-right: auto;
+		
 }
 .mainbutton {
-	border: 2px solid black;
 	display:inline-block;
-	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: black;
+
 	font-weight: bold;	
 	font-size: 30px;
 	margin: 20px;
 	width: 10%;
 }
 #throwbutton {
+	text-shadow: 0 2px 0 black;
+
+	
 	background-color: red;
 	color: darkred;
-	text-shadow: 0px 0px red;
+	box-shadow: 0px 5px 0 darkred;
 }
 #wantbutton {
-	
+	text-shadow: 0 2px 0 black;
+
 	background-color: #00ff00;
 	color: darkgreen;
-	text-shadow: 0px 0px green;
+	box-shadow: 0px 5px 0 darkgreen;
 
 }
 
 .grid-item:	{
 	background-color: darkred;
 
+}
+
+.headerbutton a:visited{
+	color:white;
 }
 #throwbutton:hover {
 	background-color: #dd0000;
