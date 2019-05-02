@@ -1,5 +1,6 @@
 
 var map, infoWindow, currentItem, marker ;
+var i = 0;
 var pos = {
         lat: 0,
         lng: 0
@@ -42,10 +43,19 @@ if (navigator.geolocation) {
   // Browser doesn't support Geolocation
   handleLocationError(false, infoWindow, map.getCenter());
 }
+function addToCart() {
+	
 
+    var original = currentItem;
+	original.id = "cartitem" + ++i; // there can only be one element with an ID
+	original.className = "grid-item";
+	original.style.display = 'block';
+	document.getElementById("cartList").appendChild(original);
+
+}
 function selectedItem()	{
 	if (currentItem != null){	
-		var x = document.getElementsByClassName("grid-item");
+		var x = document.getElementById("itemList");
 		var i;
 		for (i = 0; i < x.length; i++) {
 		  x[i].style.border = "2px solid black";

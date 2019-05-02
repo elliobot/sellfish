@@ -94,9 +94,12 @@ h1	{
 }
 #backbutton1{float:left; width:45px;height:50px;}
 #backbutton2{float:left; width:45px;height:50px;}
+#backbutton3{float:left; width:45px;height:50px;}
 
 #sellfishtext{margin:0 auto;}
 #sellbutton{float:right;width:45px;height:50px;}
+#cartbutton{float:right;width:45px;height:50px;	margin-right: 15px;
+}
 .grid-item	{
 	border: 2px solid black;
 	box-shadow: 5px 5px 5px grey;
@@ -150,6 +153,11 @@ h1	{
 	margin: 5px;
 	height: 100%;
 }
+#cartimage
+{
+	margin: 5px;
+	height: 100%;
+}
 #pageData
 {
 	size: 50px;
@@ -157,7 +165,7 @@ h1	{
 
 
 
-#mainpagebox
+.mainpagebox
 {
 	size: 100%;
 	width:100%;
@@ -175,12 +183,15 @@ h1	{
 		
 }
 .mainbutton {
+	
+	text-decoration: none;
+	
 	display:inline-block;
 
 	font-weight: bold;	
 	font-size: 30px;
 	margin: 20px;
-	width: 10%;
+	width: 120px;
 }
 #throwbutton {
 	text-shadow: 0 2px 0 black;
@@ -196,6 +207,16 @@ h1	{
 	background-color: #00ff00;
 	color: darkgreen;
 	box-shadow: 0px 5px 0 darkgreen;
+
+}
+#startbutton {
+	text-shadow: 0 2px 0 rgb(104, 111, 186);
+
+	background-color: rgb(142, 152, 253);
+	color: white;
+	box-shadow: 0px 5px 0 rgb(104, 111, 186);
+	
+	padding: 5px;
 
 }
 

@@ -57,8 +57,8 @@
 	</form>	
 	</div><!-- /content -->
 
-	<div data-role="footer"  class="mainbuttons">
-		<a href="#bar">
+	<div class="mainbuttons" style="background-color: rgb(222, 232, 255)">
+		<a class="mainbutton" id="startbutton" href="#bar">
 			Start Buying!
 		</a>
 	</div><!-- /footer -->
@@ -75,9 +75,15 @@
 		<div id="backbutton1">
 			<img src="back.png" id="backimage" >
 		</div>
-		
+		<div id="backbutton1">
+		</div>
+
 		<div id="sellbutton">
 			<img src="sell.png" id="sellimage" >
+		</div>
+		
+		<div id="cartbutton">
+			<img src="cart.png" id="cartimage" >
 		</div>
 		
 		<div id="sellfishtext">
@@ -87,13 +93,15 @@
 		
 	</div><!-- /header -->
 
-	<div id="mainpagebox" >
+	<div class="mainpagebox" >
 		<div class="grid-container" id="itemList">
 			
+			
+
 		</div>
 		
 		<div class="mainbuttons">
-			<a readonly class="mainbutton" id="wantbutton"> YES </a>
+			<a class="mainbutton" id="wantbutton" onclick="addToCart()"> YES </a>
 
 			<a class="mainbutton" id="throwbutton"> NO </a>
 		</div><!-- /footer -->
@@ -146,6 +154,28 @@
 
 			
 			
+</div>
+<div data-role="page" id="cart" class="page">
+	<div class="headerBar">
+		<div id="backbutton3">
+			<img src="back.png" id="backimage" >
+		</div>
+		
+		<div id="sellbutton">
+		</div>
+		
+		<div id="sellfishtext">
+			<img src="icon.png" id="logoimage" >
+		</div>
+	</div>
+	
+	<div class="mainpagebox" >
+		<div class="grid-container" id="cartList">
+		
+
+		</div>
+
+	</div><!-- /content -->
 </div>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4pC5n8wmuQGZ0Y4khjkCIveb1DAhOlRo&callback=initMap"></script>
 
