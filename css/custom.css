@@ -30,6 +30,10 @@ body.offline #offline{
 	background-color: rgb(222, 232, 255);
 
 }
+#button
+{
+	padding-left: 0px;
+}
 .mainbuttons {
 	
 	bottom: 0px;
@@ -103,7 +107,7 @@ h1	{
 	border: 2px solid black;
 	box-shadow: 5px 5px 5px grey;
 	margin-left: 20%;
-	margin-top: 70px;
+	margin-top: 80px;
 	margin-right: 20%;
 	position: relative;
 	

@@ -39,6 +39,7 @@ $(".online").ready(function(){
 		window.location.href = "#cart";
 
 	});
+
 });	
 
 	
